@@ -1,0 +1,15 @@
+/**/*~
+/**/.idea/
+.DS_Store
+/**/nbproject/private/
+/**/.netbeans.xml
+
+/.vscode/temp.sql
+
+# /**/*.OFF/
+# /**/*.off/
+/src.sample/
+/src/**/.git/
+/src/**/.git
+!/src/.gitkeep
+.vscode/last.sql

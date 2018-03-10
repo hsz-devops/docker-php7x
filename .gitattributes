@@ -1,0 +1,280 @@
+#
+# HSz .gitattributes 2016-10-28e
+#
+# https://github.com/Danimoth/gitattributes/blob/master/Web.gitattributes
+# https://github.com/alexkaratarakis/gitattributes
+# https://github.com/Azure/batch-shipyard/blob/master/.gitattributes
+
+# These settings are for any web project
+
+# Handle line endings automatically for files detected as text
+# and leave all files detected as binary untouched.
+* text=auto
+
+#
+# The above will handle all files NOT found below
+#
+
+# ------------------------------------------------------------------------------------------------------------
+## http://blog.shadowmoses.co.uk/2013/12/getting-unity-3d-working-with-git-on.html
+## Apply Unix-style LF line-endings on checkout of these files...
+*.meta             text eol=lf
+*.unitypackage     binary
+*.unityPackage     binary
+
+*.vspscc           text eol=lf
+
+# ------------------------------------------------------------------------------------------------------------
+# source code
+*.bat              text eol=crlf
+*.cmd              text eol=crlf
+*.coffee           text eol=lf
+*.cs               text eol=lf
+*.css              text eol=lf
+*.htm              text eol=lf
+*.html             text eol=lf
+*.inc              text eol=lf
+*.ini              text eol=lf
+*.java             text eol=lf
+*.js               text eol=lf
+*.jsp              text eol=lf
+*.jspf             text eol=lf
+*.properties       text eol=lf
+*.json             text eol=lf
+*.jsx              text eol=lf
+*.less             text eol=lf
+*.php              text eol=lf
+*.pl               text eol=lf
+*.ps1              text eol=crlf
+*.PS1              text eol=crlf
+*.py               text eol=lf
+*.py3              text eol=lf
+*.pyw              text eol=lf
+*.pyx              text eol=lf
+*.rb               text eol=lf
+*.sass             text eol=lf
+*.scm              text eol=lf
+*.scss             text eol=lf
+*.sh               text eol=lf
+*.sql              text eol=lf
+*.styl             text eol=lf
+*.tf               text eol=lf
+*.ts               text eol=lf
+*.xhtml            text eol=lf
+*.xml              text eol=lf
+Dockerfile         text eol=lf
+
+## DOCUMENTATION
+*.markdown         text eol=lf
+*.md               text eol=lf
+*.mdwn             text eol=lf
+*.mdown            text eol=lf
+*.mkd              text eol=lf
+*.mkdn             text eol=lf
+*.mdtxt            text eol=lf
+*.mdtext           text eol=lf
+*.txt              text eol=lf
+AUTHORS            text eol=lf
+CHANGELOG          text eol=lf
+CHANGES            text eol=lf
+CONTRIBUTING       text eol=lf
+COPYING            text eol=lf
+INSTALL            text eol=lf
+license            text eol=lf
+LICENSE            text eol=lf
+NEWS               text eol=lf
+readme             text eol=lf
+*README*           text eol=lf
+TODO               text eol=lf
+
+## TEMPLATES
+*.dot              text eol=lf
+*.ejs              text eol=lf
+*.haml             text eol=lf
+*.handlebars       text eol=lf
+*.hbs              text eol=lf
+*.hbt              text eol=lf
+*.j2               text eol=lf
+*.jade             text eol=lf
+*.latte            text eol=lf
+*.mustache         text eol=lf
+*.phtml            text eol=lf
+*.templ            text eol=lf
+*.tmpl             text eol=lf
+
+## LINTERS
+.csslintrc         text eol=lf
+.eslintrc          text eol=lf
+.jscsrc            text eol=lf
+.jshintignore      text eol=lf
+.jshintrc          text eol=lf
+.stylelintrc       text eol=lf
+
+## CONFIGS
+*.bowerrc          text eol=lf
+*.cfg              text eol=lf
+*.cnf              text eol=lf
+*.conf             text eol=lf
+*.config           text eol=lf
+*.npmignore        text eol=lf
+*.yaml             text eol=lf
+*.yml              text eol=lf
+.editorconfig      text eol=lf
+.gitattributes     text eol=lf
+.gitconfig         text eol=lf
+.gitignore         text eol=lf
+.htaccess          text eol=lf
+.htaccess          text eol=lf
+ansible-hosts      text eol=lf
+Makefile           text eol=lf
+makefile           text eol=lf
+Makefile*          text eol=lf
+makefile*          text eol=lf
+
+## Visual Studio
+*.sln              text eol=crlf
+*.csproj           text eol=crlf
+*.vbproj           text eol=crlf
+*.fsproj           text eol=crlf
+*.dbproj           text eol=crlf
+*.vcxproj          text eol=crlf
+*.vcxitems         text eol=crlf
+*.props            text eol=crlf
+*.filters          text eol=crlf
+
+## HEROKU
+Procfile           text
+.slugignore        text
+
+# data
+*.csv              text eol=lf
+*.tsv              text eol=lf
+
+# ------------------------------------------------------------------------------------------------------------
+## These files are binary and should be left untouched
+#
+# (binary is a macro for -text -diff)
+
+## graphics
+*.ai               binary
+*.anim             binary
+*.bmp              binary
+*.BMP              binary
+*.cubemap          binary
+*.eps              binary
+*.exr              binary
+*.fbx              binary
+*.FBX              binary
+*.flare            binary
+*.gif              binary
+*.guiskin          binary
+*.ico              binary
+*.jng              binary
+*.jp2              binary
+*.jpeg             binary
+*.jpg              binary
+*.jpx              binary
+*.jxr              binary
+*.mask             binary
+*.mat              binary
+*.PCX              binary
+*.pcx              binary
+*.pdf              binary
+*.physicMaterial   binary
+*.physicmaterial   binary
+*.png              binary
+*.ps               binary
+*.psb              binary
+*.psd              binary
+# If you want to treat svg as text, uncomment the respective line instead
+# SVG treated as an asset (binary) by default.
+*.svg              binary
+#*.svg              text
+*.svgz             binary
+*.tga              binary
+*.tif              binary
+*.tiff             binary
+*.wbmp             binary
+*.webp             binary
+
+## audio
+*.kar              binary
+*.m4a              binary
+*.mid              binary
+*.midi             binary
+*.mp3              binary
+*.mpa              binary
+*.oga              binary
+*.ogg              binary
+*.ra               binary
+*.wav              binary
+
+## video
+*.3gp              binary
+*.3gpp             binary
+*.as               binary
+*.asf              binary
+*.asx              binary
+*.avi              binary
+*.fla              binary
+*.flv              binary
+*.m4v              binary
+*.mng              binary
+*.mov              binary
+*.mp4              binary
+*.mpeg             binary
+*.mpg              binary
+*.ogx              binary
+*.swc              binary
+*.swf              binary
+*.webm             binary
+*.wmv              binary
+
+## archives
+*.7z               binary
+*.bz2              binary
+*.gz               binary
+*.rar              binary
+*.tar              binary
+*.xz               binary
+*.zip              binary
+*.ZIP              binary
+
+## executables
+*.apk              binary
+*.app              binary
+*.com              binary
+*.COM              binary
+*.dll              binary
+*.DLL              binary
+*.exe              binary
+*.EXE              binary
+*.pdb              binary
+*.so               binary
+
+## fonts
+*.eot              binary
+*.ttf              binary
+*.woff             binary
+*.woff2            binary
+*.TTF              binary
+
+## other
+
+*.bin              binary
+*.controller       binary
+*.db               binary
+*.dex              binary
+*.dylib            binary
+*.ht               binary
+*.keystore         binary
+*.mb               binary
+*.mdb              binary
+*.mwb              binary
+*.pyc              binary
+*.pyd              binary
+*.pyo              binary
+*.qt               binary
+*.jar              binary
+*.war              binary
+*.ear              binary

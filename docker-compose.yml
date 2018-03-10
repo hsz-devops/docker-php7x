@@ -1,0 +1,68 @@
+---
+#
+# v1.0.0    2018-03-05    webdev@highskillz.com
+#
+# must be run with context on the root project folder (prob ../ from this file).
+# all paths here are relative to that location
+#
+# https://docs.docker.com/compose/compose-file/compose-versioning/
+# v2:  https://docs.docker.com/compose/compose-file/compose-file-v2/
+# v3:  https://docs.docker.com/compose/compose-file/
+#
+# http://yaml-multiline.info
+#
+#
+version: "2.1"  # latest version supporting extends
+
+# ==============================================================
+x--00--build-deb:
+    &x--00--build-deb
+    # #context:    .
+    context: ./php7x-deb
+    # args:
+    #     []
+
+x--00--build-1604:
+    &x--00--build-1604
+    # #context:    .
+    context: ./php7x-1604
+    # args:
+    #     []
+
+# ==============================================================
+services:
+  php70-cli-1604:
+    &x--70-cli-1604
+    image: ez123/php7x:7.0-cli-1604
+    build:
+      << : *x--00--build-1604
+      dockerfile: ./php7x-1604-cli.docker
+      args:
+          IMG_PHP_VERSION: 7.0
+
+  php72-cli-1604:
+    &x--72-cli-1604
+    image: ez123/php7x:7.2-cli-1604
+    build:
+      << : *x--00--build-1604
+      dockerfile: ./php7x-1604-cli.docker
+      args:
+          IMG_PHP_VERSION: 7.2
+
+  php70-apa-1604:
+    image: ez123/php7x:7.0-apa-1604
+    build:
+      << : *x--00--build-1604
+      dockerfile: ./php7x-1604-apa.docker
+      args:
+          IMG_PHP_VERSION: 7.0
+
+  php72-apa-1604:
+    &x--72-apa-1604
+    image: ez123/php7x:7.2-apa-1604
+    build:
+      << : *x--00--build-1604
+      dockerfile: ./php7x-1604-apa.docker
+      args:
+          IMG_PHP_VERSION: 7.2
+

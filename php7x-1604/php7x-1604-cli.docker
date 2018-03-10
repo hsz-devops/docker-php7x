@@ -1,0 +1,61 @@
+# this image can be used as runtime for webapps like
+# Moodle, Wordpress or PHPFox.
+# it also installs libs that are required for common php modules
+#
+#   https://launchpad.net/%7Eondrej/+archive/ubuntu/php
+#
+
+FROM ubuntu:16.04 as base
+MAINTAINER Joao Costa <webdev@highskillz.com>
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+ARG IMG_PHP_VERSION=7.x
+# ARG IMG_PHP_VERSION=7.2
+# # ARG IMG_PHP_VERSION=7.1
+# # ARG IMG_PHP_VERSION=7.0
+
+# ------------------------------------------------------------------------------
+COPY ./php-addons.*sh /tmp/
+
+# ------------------------------------------------------------------------------
+# we need the localgen stuff to be able to add ppa:ondrej/php (name has non-ascii chars)
+RUN \
+    apt-get update &&\
+    apt-get install -y --no-install-recommends --auto-remove \
+        software-properties-common \
+        locales \
+        python3-pip \
+    &&\
+    pip3 install --upgrade pip &&\
+    pip3 install --upgrade setuptools wheel &&\
+    \
+    locale-gen en_US.UTF-8 &&\
+    LC_ALL=en_US.UTF-8 add-apt-repository -y ppa:ondrej/php  &&\
+    apt-get update &&\
+    \
+    apt-get install -y --no-install-recommends --auto-remove \
+        ca-certificates \
+        less \
+        \
+        file \
+        xz-utils \
+        rsync \
+        unzip \
+        atop \
+        htop \
+        pwgen \
+        \
+        php${IMG_PHP_VERSION}-cli \
+        \
+    &&\
+    /tmp/php-addons.apt-1604.sh ${IMG_PHP_VERSION} \
+            mysql \
+            postgres \
+            mongodb \
+    \
+    &&\
+    apt-get autoremove --purge &&\
+    apt-get clean all &&\
+    rm -rf /var/lib/apt/lists/* &&\
+    echo ...
