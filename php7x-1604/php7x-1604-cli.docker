@@ -60,7 +60,9 @@ RUN \
     mv ./composer.phar /usr/local/bin/composer &&\
     rm ./composer-setup.php &&\
     \
-    apt-get remove --purge -y software-properties-common &&\
+    apt-get remove --purge -y \
+        software-properties-common \
+    &&\
     apt-get autoremove --purge -y &&\
     apt-get clean all -y &&\
     rm -rf \
