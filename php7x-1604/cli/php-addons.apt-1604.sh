@@ -113,8 +113,9 @@ INSTALL_PHP="${INSTALL_PHP} pspell"
 INSTALL_PHP="${INSTALL_PHP} tideways"
 INSTALL_PHP="${INSTALL_PHP} recode"
 INSTALL_PHP="${INSTALL_PHP} gmp"
-INSTALL_PHP="${INSTALL_PHP} pear"
 INSTALL_PHP="${INSTALL_PHP} xdebug"
+
+INSTALL_PHP_nover="${INSTALL_PHP_nover} pear"
 
 # ==============================================================================
 echo "##################################################"
@@ -129,6 +130,12 @@ do
     INSTALL_APT="${INSTALL_APT} php${TARGET_PHP_VERSION}-${phppkg}"
 done
 unset INSTALL_PHP
+
+for phppkg in $INSTALL_PHP_nover
+do
+    INSTALL_APT="${INSTALL_APT} php-${phppkg}"
+done
+unset INSTALL_PHP_nover
 
 # we should also not need to confgure explicitly
 
