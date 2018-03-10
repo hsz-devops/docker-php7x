@@ -2,12 +2,10 @@
 # such as Moodle, Wordpress and PHPFox
 
 
-ARG IMG_PHP_VERSION=7.x
-ARG IMG_BASE_TAG=xxx-yyy
-# ARG IMG_BASE_TAG=apache-1604
-# ARG IMG_BASE_TAG=fpm-deb
+ARG IMG_BASE_NAME=xxx
+ARG IMG_BASE_TAG=yyy
 #
-FROM php7x:${IMG_PHP_VERSION}-${IMG_BASE_TAG} as base
+FROM ${IMG_BASE_NAME}:${IMG_BASE_TAG} as base
 MAINTAINER Joao Costa <webdev@highskillz.com>
 
 # since apt-add-repository needs python3 (we used it for apt-add-repository),
@@ -26,4 +24,16 @@ RUN \
     pip3 install --upgrade setuptools wheel &&\
     pip3 install --upgrade git+https://github.com/ansible/ansible.git@stable-2.5 &&\
     \
-    echo done!
+    apt-get remove --purge -y \
+        python3-pip \
+    &&\
+    apt-get autoremove --purge -y &&\
+    apt-get clean all -y &&\
+    rm -rf \
+        /var/lib/apt/lists/* \
+        /tmp/* \
+        /var/tmp/* \
+        /var/lib/cache/* \
+        /var/lib/log/* \
+    &&\
+    echo ...
