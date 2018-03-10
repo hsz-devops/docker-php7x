@@ -3,7 +3,7 @@
 #   https://tecadmin.net/install-apache-mysql-php-lamp-stack-on-ubuntu-16-04/
 
 ARG IMG_PHP_VERSION=7.x
-ARG IMG_BASE_TAG=xxx-yyy
+ARG IMG_BASE_TAG=xxx
 # ARG IMG_BASE_TAG=1604
 # ARG IMG_BASE_TAG=deb
 #
