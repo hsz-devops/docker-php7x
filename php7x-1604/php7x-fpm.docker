@@ -115,7 +115,7 @@ RUN \
 
 ENTRYPOINT ["docker-php-entrypoint.sh"]
 
-WORKDIR [ "${APACHE_ENVVARS}" ]
+WORKDIR [ "${WEBROOT_DIR}" ]
 
 EXPOSE 9000
 CMD ["php-fpm"]
