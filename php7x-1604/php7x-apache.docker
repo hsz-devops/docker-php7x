@@ -93,6 +93,7 @@ RUN \
     #
     # from https://github.com/docker-library/php/blob/master/7.2/stretch/apache/Dockerfile
     # ===================================================================================================
+    && a2enconf rewrite \
     &&\
     apt-get autoremove --purge -y &&\
     apt-get clean all -y &&\
