@@ -51,4 +51,4 @@ push-70-apache-1604-py3ans: push-70-apache-1604
 	$(DCOMP) push $(NOCACHE) php70-apache-1604-py3ans
 
 push-70-fpm-1604-py3ans: push-70-fpm-1604
-	$(DCOMP) build $(NOCACHE) php70-fpm-1604-py3ans
+	$(DCOMP) push $(NOCACHE) php70-fpm-1604-py3ans
