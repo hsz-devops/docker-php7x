@@ -113,9 +113,8 @@ INSTALL_PHP="${INSTALL_PHP} pspell"
 INSTALL_PHP="${INSTALL_PHP} tideways"
 INSTALL_PHP="${INSTALL_PHP} recode"
 INSTALL_PHP="${INSTALL_PHP} gmp"
-
-# xdebug
-
+INSTALL_PHP="${INSTALL_PHP} pear"
+INSTALL_PHP="${INSTALL_PHP} xdebug"
 
 # ==============================================================================
 echo "##################################################"
