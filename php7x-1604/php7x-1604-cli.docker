@@ -16,20 +16,17 @@ ARG IMG_PHP_VERSION=7.x
 # # ARG IMG_PHP_VERSION=7.0
 
 # ------------------------------------------------------------------------------
-COPY ./php-addons.*sh /tmp/
+COPY ./cli/php-addons.*sh /tmp/
 
 # ------------------------------------------------------------------------------
-# we need the localgen stuff to be able to add ppa:ondrej/php (name has non-ascii chars)
 RUN \
     apt-get update &&\
     apt-get install -y --no-install-recommends --auto-remove \
+        # needed for ppa:ondrej/php
         software-properties-common \
+        # locales is needed to install ppa:ondrej/php (name has non-ascii chars)
         locales \
-        python3-pip \
     &&\
-    pip3 install --upgrade pip &&\
-    pip3 install --upgrade setuptools wheel &&\
-    \
     locale-gen en_US.UTF-8 &&\
     LC_ALL=en_US.UTF-8 add-apt-repository -y ppa:ondrej/php  &&\
     apt-get update &&\
@@ -46,16 +43,31 @@ RUN \
         htop \
         pwgen \
         \
+        curl \
+        \
         php${IMG_PHP_VERSION}-cli \
         \
     &&\
-    /tmp/php-addons.apt-1604.sh ${IMG_PHP_VERSION} \
+    \
+    bash /tmp/php-addons.apt-1604.sh ${IMG_PHP_VERSION} \
+    # installing support for the 3 most common database engines
             mysql \
             postgres \
             mongodb \
-    \
     &&\
-    apt-get autoremove --purge &&\
-    apt-get clean all &&\
-    rm -rf /var/lib/apt/lists/* &&\
+    curl https://getcomposer.org/installer > ./composer-setup.php &&\
+    php ./composer-setup.php &&\
+    mv ./composer.phar /usr/local/bin/composer &&\
+    rm ./composer-setup.php &&\
+    \
+    apt-get remove --purge -y software-properties-common &&\
+    apt-get autoremove --purge -y &&\
+    apt-get clean all -y &&\
+    rm -rf \
+        /var/lib/apt/lists/* \
+        /tmp/* \
+        /var/tmp/* \
+        /var/lib/cache/* \
+        /var/lib/log/* \
+    &&\
     echo ...
