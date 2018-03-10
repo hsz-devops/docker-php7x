@@ -1,0 +1,18 @@
+# PHP Images using https://github.com/codecasts/php-alpine
+ARG ALP_VERSION="3.7"
+FROM alpine:${ALP_VERSION}
+ARG ALP_VERSION
+ARG PHP_VERSION="7.x"
+
+ADD https://php.codecasts.rocks/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
+RUN echo "http://php.codecasts.rocks/v${ALP_VERSION}/php-${PHP_VERSION}" >> /etc/apk/repositories
+RUN cat /etc/apk/repositories
+
+RUN apk add --update bash ca-certificates
+RUN apk search php7*
+RUN apk add --update \
+    php7 php7-common \
+    php7-fpm
+#    php7-cgi \
+#    php7-apache2 \
+

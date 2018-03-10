@@ -1,0 +1,38 @@
+ARG IMG_PHP_VERSION=7.x
+# ARG IMG_PHP_VERSION=7.2
+# # ARG IMG_PHP_VERSION=7.1
+# # ARG IMG_PHP_VERSION=7.0
+#
+FROM php:${IMG_PHP_VERSION}-fpm as base
+MAINTAINER Joao Costa <webdev@highskillz.com>
+
+# apt-get install -y software-properties-common apt-transport-https &&\
+# add-apt-repository -y ppa:git-core/ppa &&\
+# add-apt-repository -y ppa:ansible/ansible &&\
+# apt-get update &&\
+
+COPY ./php-addons.*sh /tmp/
+RUN \
+    apt-get update &&\
+    apt-get install -y gnupg &&\
+    \
+    echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" >> /etc/apt/sources.list.d/ansible.list &&\
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367 &&\
+    \
+    echo "deb http://ppa.launchpad.net/git-core/ppa/ubuntu trusty main" >> /etc/apt/sources.list.d/git.list &&\
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E1DF1F24 &&\
+    \
+    apt-get update &&\
+    apt-get install -y \
+        ansible \
+        git \
+        less \
+        curl \
+        rsync \
+        gzip \
+        unzip \
+        \
+        &&\
+    apt-get clean all &&\
+    rm -rf /var/lib/apt/lists/* &&\
+    echo ...
