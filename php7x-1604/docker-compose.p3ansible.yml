@@ -49,7 +49,7 @@ services:
       << : *x--00--build-py3
       args:
           IMG_BASE_NAME: "ez123/php7x"
-          IMG_BASE_TAG: "7.0-fpm-1604"
+          IMG_BASE_TAG: "7.0-apache-1604"
 
   php72-apache-1604-py3ans:
     image: ez123/php7x:7.2-apache-1604-py3ans
