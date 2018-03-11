@@ -34,6 +34,7 @@ RUN \
     apt-get install -y --no-install-recommends --auto-remove \
         ca-certificates \
         less \
+        nano \
         \
         file \
         xz-utils \
