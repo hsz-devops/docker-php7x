@@ -27,12 +27,12 @@ push-1604-all-72: push-72-fpm-1604
 .PHONY: push-72-cli-1604 push-72-apache-1604 push-72-fpm-1604
 push-72-cli-1604:
 	$(DCOMP) push php72-cli-1604
-	$(DCOMP) build php72-cli-1604-py3ans
+	$(DCOMP) push php72-cli-1604-py3ans
 
 push-72-apache-1604:
 	$(DCOMP) push php72-apache-1604
-	$(DCOMP) build php72-apache-1604-py3ans
+	$(DCOMP) push php72-apache-1604-py3ans
 
 push-72-fpm-1604:
 	$(DCOMP) push php72-fpm-1604
-	$(DCOMP) build php72-fpm-1604-py3ans
+	$(DCOMP) push php72-fpm-1604-py3ans
