@@ -47,12 +47,24 @@ do
             ;;
         "mysql" | "mysqli")
             INSTALL_PHP="${INSTALL_PHP} pdo mysqli pdo-mysql"
+            INSTALL_APT="${INSTALL_APT} mysql-client"
+            # later versions available with this ppa
             ;;
         "postgres" | "pgsql")
             INSTALL_PHP="${INSTALL_PHP} pdo pgsql pdo-pgsql"
+            # INSTALL_APT="${INSTALL_APT} postgresql-client"
+            # # later versions available with this ppa
+            # # https://gist.github.com/alistairewj/8aaea0261fe4015333ddf8bed5fe91f8
+            # #   sudo add-apt-repository 'deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main'
+            # #   wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | \
+            # #   sudo apt-key add -
+            # #   sudo apt-get update
+            # #   sudo apt-get install postgresql-client-10
+            # #
             ;;
         "mongo" | "mongodb")
             INSTALL_PHP="${INSTALL_PHP} mongodb"
+            # INSTALL_APT="${INSTALL_APT} mongodb-clients"
             ;;
         "odbc")
             INSTALL_PHP="${INSTALL_PHP} odbc"
