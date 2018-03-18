@@ -108,7 +108,7 @@ RUN \
 
 ENTRYPOINT ["docker-php-entrypoint.sh"]
 
-WORKDIR [ "${WEBROOT_DIR}" ]
+WORKDIR "${WEBROOT_DIR}"
 
 EXPOSE 80
 CMD ["apache2-foreground.sh"]
