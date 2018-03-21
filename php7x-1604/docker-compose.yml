@@ -81,32 +81,32 @@ services:
           IMG_PHP_VERSION: "7.2"
           IMG_BASE_TAG: "1604"
 
-  # # ------------------------------------------------------------
-  # php70-fpm-1604:
-  #   image: ez123/php7x:7.0-fpm-1604
-  #   build:
-  #     << : *x--00--build-1604
-  #     dockerfile: ./php7x-fpm.docker
-  #     args:
-  #         IMG_PHP_VERSION: "7.0"
-  #         IMG_BASE_TAG: "1604"
-  #
-  # # php71-fpm-1604:
-  # #   image: ez123/php7x:7.1-fpm-1604
-  # #   build:
-  # #     << : *x--00--build-1604
-  # #     dockerfile: ./php7x-fpm.docker
-  # #     args:
-  # #         IMG_PHP_VERSION: "7.1"
-  # #         IMG_BASE_TAG: "1604"
-  #
-  # php72-fpm-1604:
-  #   &x--72-fpm-1604
-  #   image: ez123/php7x:7.2-fpm-1604
-  #   build:
-  #     << : *x--00--build-1604
-  #     dockerfile: ./php7x-fpm.docker
-  #     args:
-  #         IMG_PHP_VERSION: "7.2"
-  #         IMG_BASE_TAG: "1604"
+  # ------------------------------------------------------------
+  php70-fpm-1604:
+    image: ez123/php7x:7.0-fpm-1604
+    build:
+      << : *x--00--build-1604
+      dockerfile: ./php7x-fpm.docker
+      args:
+          IMG_PHP_VERSION: "7.0"
+          IMG_BASE_TAG: "1604"
+
+  php71-fpm-1604:
+    image: ez123/php7x:7.1-fpm-1604
+    build:
+      << : *x--00--build-1604
+      dockerfile: ./php7x-fpm.docker
+      args:
+          IMG_PHP_VERSION: "7.1"
+          IMG_BASE_TAG: "1604"
+
+  php72-fpm-1604:
+    &x--72-fpm-1604
+    image: ez123/php7x:7.2-fpm-1604
+    build:
+      << : *x--00--build-1604
+      dockerfile: ./php7x-fpm.docker
+      args:
+          IMG_PHP_VERSION: "7.2"
+          IMG_BASE_TAG: "1604"
 
