@@ -34,6 +34,14 @@ services:
           IMG_BASE_NAME: "ez123/php7x"
           IMG_BASE_TAG: "7.0-cli-1604"
 
+  php71-cli-1604-py3ans:
+    image: ez123/php7x:7.1-cli-1604-py3ans
+    build:
+      << : *x--00--build-py3
+      args:
+          IMG_BASE_NAME: "ez123/php7x"
+          IMG_BASE_TAG: "7.1-cli-1604"
+
   php72-cli-1604-py3ans:
     image: ez123/php7x:7.2-cli-1604-py3ans
     build:
@@ -51,6 +59,14 @@ services:
           IMG_BASE_NAME: "ez123/php7x"
           IMG_BASE_TAG: "7.0-apache-1604"
 
+  php71-apache-1604-py3ans:
+    image: ez123/php7x:7.1-apache-1604-py3ans
+    build:
+      << : *x--00--build-py3
+      args:
+          IMG_BASE_NAME: "ez123/php7x"
+          IMG_BASE_TAG: "7.1-apache-1604"
+
   php72-apache-1604-py3ans:
     image: ez123/php7x:7.2-apache-1604-py3ans
     build:
@@ -67,6 +83,14 @@ services:
       args:
           IMG_BASE_NAME: "ez123/php7x"
           IMG_BASE_TAG: "7.0-fpm-1604"
+
+  php71-fpm-1604-py3ans:
+    image: ez123/php7x:7.1-fpm-1604-py3ans
+    build:
+      << : *x--00--build-py3
+      args:
+          IMG_BASE_NAME: "ez123/php7x"
+          IMG_BASE_TAG: "7.1-fpm-1604"
 
   php72-fpm-1604-py3ans:
     image: ez123/php7x:7.2-fpm-1604-py3ans
