@@ -15,8 +15,16 @@ build-1604-all: build-1604-all-70
 build-1604-all: build-1604-all-71
 build-1604-all: build-1604-all-72
 
+.PHONY: build-1604-all-apache
+build-1604-all-apache: build-70-apache-1604
+build-1604-all-apache: build-71-apache-1604
+build-1604-all-apache: build-72-apache-1604
+
 .PHONY: push-1604-all
 push-1604-all: push-1604-all-70
 push-1604-all: push-1604-all-71
 push-1604-all: push-1604-all-72
 
+.PHONY: pull-1604-all
+pull-1604-all:
+	$(DCOMP) pull
