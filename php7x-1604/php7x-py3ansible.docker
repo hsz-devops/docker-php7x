@@ -28,7 +28,7 @@ RUN \
     # so we are limiting it to this version until this gets solved
     pip3 install --upgrade "pip<10" &&\
     pip3 install --upgrade setuptools wheel &&\
-    pip3 install --upgrade git+https://github.com/ansible/ansible.git@stable-2.5 &&\
+    pip3 install --upgrade git+https://github.com/ansible/ansible.git@stable-2.6 &&\
     \
     apt-get remove --purge -y \
         python3-pip \
