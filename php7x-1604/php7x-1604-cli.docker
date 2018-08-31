@@ -18,6 +18,9 @@ ARG IMG_PHP_VERSION=7.x
 # ------------------------------------------------------------------------------
 COPY ./cli/php-addons.*sh /tmp/
 
+# bash needed for most conditionals
+SHELL [ "/bin/bash", "-c" ]
+
 # ------------------------------------------------------------------------------
 RUN \
     apt-get update &&\
