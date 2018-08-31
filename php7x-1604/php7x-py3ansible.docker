@@ -22,7 +22,11 @@ RUN \
         python3 \
         python3-pip \
     &&\
-    pip3 install --upgrade pip &&\
+    # pip3>=10 breaks the pip3 command...
+    # see   https://github.com/pypa/pip/issues/5221
+    # see   https://github.com/pypa/pip/issues/5599
+    # so we are limiting it to this version until this gets solved
+    pip3 install --upgrade "pip<10" &&\
     pip3 install --upgrade setuptools wheel &&\
     pip3 install --upgrade git+https://github.com/ansible/ansible.git@stable-2.5 &&\
     \
