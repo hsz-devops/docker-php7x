@@ -75,24 +75,14 @@ RUN \
         \
         # PHP files should be handled by PHP, and should be preferred over any other file type
         && { \
-            cat /tmp/cfg/docker-php.conf ; \
-        #     echo '<FilesMatch \.php$>'; \
-        #     echo '\tSetHandler application/x-httpd-php'; \
-        #     echo '</FilesMatch>'; \
-        #     echo; \
-        #     echo 'DirectoryIndex disabled'; \
-        #     echo 'DirectoryIndex index.php index.html'; \
-        #     echo; \
-        #     echo '<Directory /var/www/>'; \
-        #     echo '\tOptions -Indexes'; \
-        #     echo '\tAllowOverride All'; \
-        #     echo '</Directory>'; \
-        } | tee "$APACHE_CONFDIR/conf-available/docker-php.conf" \
+            cat /tmp/cfg/zzz-000-docker-php.conf ; \
+        } | tee "$APACHE_CONFDIR/conf-available/zzz-000-docker-php.conf" \
         \
-        && a2enconf docker-php \
+        && a2enconf zzz-000-docker-php \
     #
     # from https://github.com/docker-library/php/blob/master/7.2/stretch/apache/Dockerfile
     # ===================================================================================================
+    && a2enmod headers \
     && a2enmod rewrite \
     &&\
     apt-get autoremove --purge -y &&\
