@@ -83,14 +83,8 @@ RUN \
         # } | tee php-fpm.d/docker.conf \
         } | tee pool.d/docker.conf \
         && { \
-            cat /tmp/cfg/pool.d/zz-docker.conf ; \
-        #     echo '[global]'; \
-        #     echo 'daemonize = no'; \
-        #     echo; \
-        #     echo '[www]'; \
-        #     echo 'listen = 9000'; \
-        # # } | tee php-fpm.d/zz-docker.conf
-        } | tee pool.d/zz-docker.conf \
+            cat /tmp/cfg/pool.d/zzz-000-docker.conf ; \
+        } | tee pool.d/zzz-000-docker.conf \
     \
     #
     # from https://github.com/docker-library/php/blob/master/7.2/stretch/fpm/Dockerfile
